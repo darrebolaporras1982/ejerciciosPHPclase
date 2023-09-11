@@ -13,19 +13,19 @@
     contiene una dirección de correo electrónica válida, el nombre 
     de usuario por una parte y el dominio por otra.  */
 
-    $email="d.arrebola.porras@gmail.com";
-    $marcador="@";
-    $posicion=strpos($email,$marcador);
+    $email="d.arrebola.porras@gmail.com";//aqui metemos la cadena que queremos analizar
+    $marcador="@";//esta el la letra o cadena que queremos comprobar en la subcadena
+    $posicion=strpos($email,$marcador);//metemos en la variable el resultado de la funcion strpos
     if($posicion){
         echo "la direccion el valida";
         }else{
             echo "la direccion no es valida";
     }
     echo "<br>";
-    $reemplazo=array("d.arrebola.porras"=>"Usuario","gmail.com"=>"Dominio");
+    $reemplazo=array("d.arrebola.porras"=>"Usuario","gmail.com"=>"Dominio");//creamos un array asociativo 
 
-    foreach($reemplazo as $clave=>$dato){
-        echo " $clave es $dato" . " <br>";
+    foreach($reemplazo as $clave=>$dato){//lo recorremos con un foreach
+        echo " $clave es $dato" . " <br>";//imprimimos por pantalla
     }
 
 
