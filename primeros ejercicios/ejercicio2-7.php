@@ -22,19 +22,20 @@
     Alkorta”
     ● En caso contrario mostrará el mensaje “Acceso denegado”. */
     if (isset($_GET["envia"])){
-    $nombre=$_GET["nombre"];
-    $apellido1=$_GET["apellido1"];
-    $apellido2=$_GET["apellido2"];
-    
-    $nombre1="Elisabet";    
-    $nombre2="Lekue";
-    $nombre3="Alkorta";
+        
+        $nombre=$_GET["nombre"];
+        $apellido1=$_GET["apellido1"];
+        $apellido2=$_GET["apellido2"];
+        
+        $nombre1="Elisabet";    
+        $nombre2="Lekue";
+        $nombre3="Alkorta";
 
-    if($nombre==$nombre1 && $apellido1==$nombre2 && $apellido2==$nombre3){
-        echo "Bienvenida $nombre1";
-    }else{
-        echo "Acceso denegado";
-    }
+        if($nombre==$nombre1 && $apellido1==$nombre2 && $apellido2==$nombre3){
+            echo "Bienvenida $nombre1";
+        }else{
+            echo "Acceso denegado";
+        }
 }
 
     ?>

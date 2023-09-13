@@ -7,28 +7,80 @@
 </head>
 <body>
     <?php
-    /* Crea una variable,  $email y comprueba mediante la función  
-    strpos que es una dirección de correo electrónico válida.
-    Mediante la función strtr extrae de una variable,  $email, que 
-    contiene una dirección de correo electrónica válida, el nombre 
-    de usuario por una parte y el dominio por otra.  */
+/* Obtén primero el mes y el dia de la semana mediante una función y a continuación la
+estructura switch
+Guarda mediante la función date el número de mes en una variable y el número del dia
+de la semana en otro.
+Luego, mediante Switch captura el nombre del mes en función del número y lo mismo
+con otro switc y el dia de la semana. */
+date_default_timezone_set('Europe/Madrid');
 
-    $email="d.arrebola.porras@gmail.com";//aqui metemos la cadena que queremos analizar
-    $marcador="@";//esta el la letra o cadena que queremos comprobar en la subcadena
-    $posicion=strpos($email,$marcador);//metemos en la variable el resultado de la funcion strpos
-    if($posicion){
-        echo "la direccion el valida";
-        }else{
-            echo "la direccion no es valida";
-    }
-    echo "<br>";
-    $reemplazo=array("d.arrebola.porras"=>"Usuario","gmail.com"=>"Dominio");//creamos un array asociativo 
-
-    foreach($reemplazo as $clave=>$dato){//lo recorremos con un foreach
-        echo " $clave es $dato" . " <br>";//imprimimos por pantalla
-    }
-
-
+$day=date("d");
+$weekday=date("N");
+$month=date("m");
+$year=date("Y");
+switch($weekday){
+    case 1:
+        echo "Lunes,";
+        break;
+    case 2:
+        echo "Martes,";
+        break;
+    case 3:
+        echo "Miercoles,";
+        break;
+    case 4:
+        echo "Jueves,";
+        break;
+    case 5:
+        echo "Viernes,";
+        break;
+    case 6:
+        echo "Sabado,";
+        break;
+    case 7:
+        echo "Domigo,";
+        break;
+        default: echo "fecha no valida";
+}
+switch($month){
+    case 1:
+    echo "$day de Enero de $year";
+    break;
+    case 2:
+    echo "$day de Febrero de $year";
+    break;
+    case 3:
+    echo "$day de Marzo de $year";
+    break;
+    case 4:
+    echo "$day de Abril de $year";
+    break;
+    case 5:
+    echo "$day de Mayo de $year";
+    break;
+    case 6:
+    echo "$day de Junio de $year";
+    break;
+    case 7:
+    echo "$day de Julio de $year";
+    break;
+    case 8:
+    echo "$day de agosto de $year";
+    break;
+    case 9:
+    echo "$day de Septiembre de $year";
+    break;
+    case 10:
+    echo "$day de Octubrede $year";
+    break;
+    case 11:
+    echo "$day de Noviembre de $year";
+    break;
+    case 12:
+    echo "$day de Diciembre de $year";
+    break;
+}
 
 ?>
 </body>
