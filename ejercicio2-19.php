@@ -20,7 +20,7 @@
     array_merge($paises,array("argentina","bolivia"));
     array_pop($paises);//elimino el ultimo
     array_shift($paises);//elimino el primero
-    sort($paises);
+    sort($paises);//ordeno los paises
     echo"Ya esta ordenado"."<br>";
     print_r($paises);
     ?>
