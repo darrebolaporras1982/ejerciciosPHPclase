@@ -15,8 +15,15 @@
         se llame a la función */
 
         
-    
-    
+        function estatica(){
+            static $contador=0;
+            $contador++;
+            return $contador;
+        }
+        echo estatica() ."<br>";
+        echo estatica() ."<br>";
+        echo estatica() ."<br>";
+
     ?>
 </body>
 </html>
