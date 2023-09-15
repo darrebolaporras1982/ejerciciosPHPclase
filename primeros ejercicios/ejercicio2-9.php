@@ -19,9 +19,9 @@
 
     echo "<table>";
         for($i=0;$i<4;$i++){
-           echo $i;
+           //echo $Matriz["$i"][0];
            for ($j = 0; $j <5 ;$j++) {
-            echo $j;
+            echo $Matriz["$i"]["$j"]."<br>";
         }
     }
     echo "</table>";
