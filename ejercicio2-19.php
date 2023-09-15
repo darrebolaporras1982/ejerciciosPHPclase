@@ -16,6 +16,8 @@
     4) Mostrar los datos utilizando print_r */
 
     $paises = array("alemania", "rumania", "italia","chile", "uruguay", "australia");
+    array_diff($paises,array("alemania","chile","australia"));//elimino la seleccion
+    array_merge($paises,array("argentina","bolivia"));
     array_pop($paises);//elimino el ultimo
     array_shift($paises);//elimino el primero
     sort($paises);
