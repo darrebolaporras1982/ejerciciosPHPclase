@@ -19,6 +19,23 @@
         }
 
         echo media(4,6);
+
+
+        function mediaArray($numeros){
+            $cuantos=count($numeros);
+            if($cuantos===0){
+                return 0;
+            }else{
+                $total=array_sum($numeros);
+                return "$total/$cuantos";
+            }
+        }
+
+        //falta poner ejercicio de prueba
+        $numeros=array(12,34,54,6,33,4,55);
+        mediaArray($numeros);
+
+
     ?>
 
 </body>

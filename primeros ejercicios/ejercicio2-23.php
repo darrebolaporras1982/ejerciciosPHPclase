@@ -18,7 +18,7 @@
             $preciototal=$precio+($precio*$iva);
             return $preciototal;
         }
-
+        $iva=18;
         $pantalon=100;
         echo calculaIva($pantalon);
         
