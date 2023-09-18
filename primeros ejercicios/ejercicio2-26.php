@@ -25,13 +25,23 @@
             $saca=$elementos[$eleccionaleatoria];
             return $saca;
         }
-        
+
+        $aleatorio=sacaAleatorio();
+
         function resultado($mio,$aleatorio){
             if ($mio==$aleatorio) {
                 echo "habeis sacado lo mismo";
+            }else if($mio=="Piedra"&&$aleatorio=="Tijera"){
+                echo "$mio<h3>Ha ganado El Usuario</h3>$$aleatorio";
+            }else if($mio=="Tijera"&&$aleatorio=="Papel"){
+                echo "$mio<h3>Ha ganado El Usuario</h3>$aleatorio";
+            }else if($mio=="Papel"&&$aleatorio=="Piedra"){
+                echo "$mio<h3>Ha ganado Papel</h3>$aleatorio";
+            }else{
+                echo"$mio<h3>Ha ganado el Ordenador</h3>$aleatorio";
             }
         }
-
+        resultado("Tijera",$aleatorio);
         
 
         
