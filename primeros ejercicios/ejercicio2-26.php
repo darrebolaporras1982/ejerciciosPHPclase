@@ -16,11 +16,30 @@
         seleccionado el ordenador y el mensaje de “Has ganado” o “Ha ganado el ordenador” o 
         “Ha habido un empate”, tal y como se muestra en la imagen.
         Utiliza include() para la parte del diseño del encabezado y del pie */
+        
+       $elementos=["Piedra","Papel","Tijera"];
+       
+        function sacaAleatorio(){
+            global $elementos;
+            $eleccionaleatoria=rand(0,2);
+            $saca=$elementos[$eleccionaleatoria];
+            return $saca;
+        }
+        
+        function resultado($mio,$aleatorio){
+            if ($mio==$aleatorio) {
+                echo "habeis sacado lo mismo";
+            }
+        }
 
-        $elementos=["Piedra","Papel","Tijera"];
+        
 
+        
 
-        function seleccionarGanador($eleccion){
+        
+
+        
+       /*  function seleccionarGanador($eleccion){
             global $elementos;
             
             $idAleatorio=rand(1,3);
@@ -49,7 +68,7 @@
 
         $miEleccion="Papel";
         seleccionarGanador($miEleccion);
-
+ */
     ?>
 </body>
 </html>
