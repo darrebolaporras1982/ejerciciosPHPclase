@@ -9,7 +9,7 @@
 <h2>Ejercicio formulario</h2>
 <form action="recoger_datos.php" method="get">
     <label for="Nombre">Nombre <input type="text" name="nombre" id="nombre"></label>
-    <label for="Apellido">Apellido <input type="text" name="apellido" id="apelldo"></label>
+    <label for="Apellido">Apellido <input type="text" name="apellido" id="apellido"></label>
     <input type="submit" value="Acceso">
 
 </form>
