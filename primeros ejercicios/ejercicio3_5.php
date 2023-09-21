@@ -26,18 +26,54 @@
    <input type="submit" value="Enviar">
 </form>
 <?php
-$nombre=$_POST["fname"];
-$apellido=$_POST["lname"];
-$menor15=$_POST["15"];
-$coche=$_POST["Car"];
 
-if(isset($_POST["Enviar"])){
-        if($nombre==""|| $apellido==""){
-            echo"debes rellenar los dos campos";
+// Definir variables para almacenar los datos del formulario
+$nombre = "";
+$apellido = "";
+$edad = "";
+$transporte = "";
+
+// Verificar si el formulario se ha enviado
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
+    // Recoger los datos del formulario
+    $nombre = $_POST["fname"];
+    $apellido = $_POST["lname"];
+    $edad = isset($_POST["age"]) ? intval($_POST["age"]) : null;
+    
+    // Verificar si el nombre y los apellidos están vacíos
+    if (empty($nombre) || empty($apellido)) {
+        echo "Error: El nombre y los apellidos son obligatorios. Por favor, rellena ambos campos.<br>";
+    } else {
+        // Verificar la edad y mostrar mensajes según la lógica especificada
+        if ($edad >= 0 && $edad <= 15) {
+            echo "$nombre $apellido, eres muy joven, es mejor que vayas a la escuela.<br>";
+        } elseif ($edad > 15 && $edad <= 60) {
+            // Verificar el transporte seleccionado
+            $transporte = "";
+            if (isset($_POST["vehicle1"])) {
+                $transporte .= "Bicicleta ";
+            }
+            if (isset($_POST["vehicle2"])) {
+                $transporte .= "Coche ";
+            }
+            if (isset($_POST["vehicle3"])) {
+                $transporte .= "Autobus ";
+            }
+            
+            if (!empty($transporte)) {
+                echo "$nombre $apellido, intenta utilizar lo menos posible el coche, por favor.<br>";
+                echo "Transporte seleccionado: $transporte<br>";
+            }
+        } elseif ($edad > 60 && $edad <= 100) {
+            echo "$nombre $apellido, ¿estás seguro de que no prefieres dedicarte a viajar?<br>";
+        }
+        
+        // Si la edad está entre 15 y 60, mostrar la fecha de alta
+        if ($edad > 15 && $edad <= 60 && !empty($_POST["alta_data"])) {
+            echo "Fecha de alta: " . $_POST["alta_data"];
         }
     }
-
-
+}
 
 ?>
 </body>
