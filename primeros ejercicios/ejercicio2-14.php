@@ -19,8 +19,9 @@
         $indice=$valores[$i];
         $sumatotal+=$indice;
     }
-    echo "la suma total del array es $sumatotal";
-
+    echo "la suma total del array es $sumatotal"."<br>";
+    echo array_sum($valores);//para sumar los valores de un array
+    
 
 
 ?>
