@@ -1,0 +1,27 @@
+h2{
+    text-align:center ;
+}
+.card{
+    display:flex;
+    flex-direction: column;
+    width: 400px;
+    margin: auto;
+    background-color: rgb(198, 198, 198);
+    text-align: center;
+    align-items: center;
+    border-radius: 10%
+}
+
+form{
+        
+    
+    text-align: left;
+    border-radius: 10%;
+    
+    background-color: aliceblue;
+    width: 250px;
+    height: 200px;
+    margin: auto;
+    padding: 3px;
+
+}

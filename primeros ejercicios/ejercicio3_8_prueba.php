@@ -53,7 +53,7 @@
                             //en una variable metemos el nombre del archivo temporal
                             $imagen=$_FILES["file"]["tmp_name"];
                             //ponemos la ruta dende lo vamos a alojar y el nombre
-                            $ruta="./img/aventura.jpg";
+                            $ruta="./img/".$nombre;
                             //movemos el archivo con los dos paramentros
                             move_uploaded_file($imagen,$ruta);
                             foreach($img as $clave=>$valor){
@@ -61,10 +61,10 @@
                             }
                             echo "Imagen subida correctamente<br>";
                             echo "<img src=$ruta>";
+                        }
                     }
                 }
-            }
-        }       
+            }       
         }
     }
 ?>
