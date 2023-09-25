@@ -1,0 +1,27 @@
+form{
+    
+    margin: 4px;
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    width: 150px;
+    border: 2px solid gray;
+    background: white;
+}
+.botones{
+    display:flex;
+    flex-direction: row;
+    margin: 5px;
+}
+.button{
+    margin: 5px;
+    width: 80px;
+}
+.seccion{
+    background-color: gray;
+    width: 250px;
+    margin: auto;
+    align-items: center;
+    
+
+}
