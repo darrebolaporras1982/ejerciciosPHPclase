@@ -1,27 +1,37 @@
-h2{
-    text-align:center ;
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
 }
-.card{
-    display:flex;
-    flex-direction: column;
-    width: 400px;
+.seccion{
+    display: flex;
+    background-color: gray;
     margin: auto;
-    background-color: rgb(198, 198, 198);
-    text-align: center;
+    margin-top: 50px;
     align-items: center;
-    border-radius: 10%
+    justify-content: center;
+    width: 300px;
+    border-radius: 5%;
+    padding: 4em;
 }
-
 form{
-        
-    
-    text-align: left;
-    border-radius: 10%;
-    
-    background-color: aliceblue;
-    width: 250px;
-    height: 200px;
-    margin: auto;
-    padding: 3px;
-
+    margin: 10px;
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 200px;
+    border: 2px solid gray;
+    background: white;
+    height: 180px;
+}
+.botones{
+    display:flex;
+    flex-direction: row;
+    margin: 5px;
+}
+.button{
+    margin: 5px;
+    width: 80px;
 }
