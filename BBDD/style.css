@@ -1,0 +1,36 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.contenedor{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+   
+}
+form{
+    display: flex;
+    flex-direction: column;
+    justify-content:space-around;
+    margin: 4em;
+    padding: 2em;
+    text-align: center;
+}
+label ,input{
+padding: 1em;
+}
+#boton{
+    border-radius: 5%;
+    border: none;
+    background-color: rgb(248, 204, 122);
+    width: 6em;
+}
