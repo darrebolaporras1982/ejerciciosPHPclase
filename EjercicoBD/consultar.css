@@ -1,0 +1,29 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+    margin:2em;
+}
+
+table{
+    border: 2px solid rgb(248, 204, 122);
+    border-spacing: 100px 12px;
+    margin: 2em;
+}
+#titulo_tabla{
+    border: 2px solid rgb(248, 204, 122);
+    margin: 2em;
+}
+h3{
+    background-color: rgb(248, 204, 122);
+    color:white;
+    width: 7em;
+    margin: 2em;
+}
