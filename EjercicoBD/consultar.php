@@ -30,7 +30,7 @@
             echo "<h1>Consulta de Libros</h1><br>";
             echo "<h2 id='titulo_tabla'>BIBLIOTECA</h2><br>";
             echo "<div class='container2'><br>";
-            echo "<form action='modificar.php' method='POST'>";
+            echo "<form action='modificar.php' method='GET'>";
             echo "<table id='tabla_libros'><br>";
             echo "<thead><tr><td>Código</td><td>Título</td><td>Autor</td><td>Disponible</td><td>Modificar</td><td>Borrar</td></tr></thead>";
             foreach ($filas as $indice) {
@@ -43,7 +43,7 @@
                 echo "<td><input type='button' value='Borrar' name=".$indice['codigo']."></td>";
                 echo "</tr>";
             }
-            //echo "<input type='hidden' name='oculto' value=".$tablaCount.">";
+            
             echo "</table></form></div>";
         }
     } catch (Exception $e) {

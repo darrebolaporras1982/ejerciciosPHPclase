@@ -63,6 +63,7 @@ session_start();
                 $stmtInsertar->execute();
                 
                 echo "Se ha insertado el libro correctamente";
+                echo"<a href='menu.php'>volver al menu</a>";
             }
             
             // Cerrar la conexión

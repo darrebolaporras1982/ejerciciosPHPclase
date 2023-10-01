@@ -1,20 +1,14 @@
-
 <?php
 session_start();
 
 //comienzo el bloque de php
 // compruebo el contenido de las variables
 if((isset($_POST["usuario"])&&!empty($_POST["usuario"]))&&(isset($_POST["passW"])&&!empty($_POST["passW"]))){
-    $_SESSION['user']=$_POST['usuario'];
-    $_SESSION['contra']=$_POST['passW'];
 
-    $sesionUsuario=$_SESSION['user'];
-    $sesionPassword=$_SESSION['contra'];
     //creo las variables
     $usuario=$_POST["usuario"];
     $password=$_POST["passW"];
         
-   
     //creo las variables para la conexion
     $dbHost="localhost";
     $dbNombre="db_biblioteca";
@@ -51,7 +45,9 @@ if((isset($_POST["usuario"])&&!empty($_POST["usuario"]))&&(isset($_POST["passW"]
             echo "<a href='index.html'>Intentalo de nuevo</a>";
             $conexion=null;
         }else{
-
+            $_SESSION['usuario']=$_POST['usuario'];
+            $_SESSION['passW']=$_POST['passW'];
+        
             ?>
         <!DOCTYPE html>
 <html lang="en">
@@ -80,9 +76,30 @@ if((isset($_POST["usuario"])&&!empty($_POST["usuario"]))&&(isset($_POST["passW"]
     }
     //si ha dejado algun campo del ligin sin rellenar
 }else{
-    echo "debe rellenar los dos campos para entrar";
-}
+    $sesionUsuario=$_SESSION['usuario'];
 
+    if(isset($sesionUsuario)){
+   
+  echo  '<!DOCTYPE html>
+        <html lang="en">
+        <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <link rel="stylesheet" href="stylemenu.css">
+   
+        </head>
+        <body>
+        <h1>*****BIBLIOTECA*****</h1>
+        <div class="contenedor">
+        <input type="button" value="Insertar nuevo libro" name="insertar" id="insertar1">
+        <input type="button" value="Consulta de libro" name="consultar" id="consultar1">
+        <input type="button" value="Buscador de libro" name="buscar" id="buscar1">
+        </div>
+        </body>
+</html>';
+}
+}
 
 ?>
  <script src="menu.js" defer></script>

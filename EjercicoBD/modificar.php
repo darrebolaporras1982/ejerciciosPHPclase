@@ -21,7 +21,8 @@
     </body>
     </html>
 <?php
-    foreach($_POST as $clave=>$valor){
+    
+    foreach($_GET as $clave=>$valor){
        $codigo=$clave;
     }
       //creo las variables para la conexion
@@ -29,7 +30,10 @@
       $dbNombre="db_biblioteca";
       $dbUsusario="root";
       $dbPassword="";
-  
+   
+      $title=null; 
+      $autorr=null; 
+      $dispons=null; 
       //para utilizar PDO hace falta especificar cual sera el nombre de la base de datos y el servidor
       $hostPDO="mysql:host=$dbHost;dbname=$dbNombre;";
      
@@ -46,36 +50,58 @@
         $stmt=$conexion->prepare($consultaSelect);
         $stmt->bindParam(":codigo",$codigo);
         $stmt->execute();
-        while($fila=$stmt->fetch()){
+        while($fila=$stmt->fetch(PDO::FETCH_ASSOC)){
             echo "<h2>El libro que vas a Modificar es :</h2><br>Codigo : ".$fila['codigo']." - "."Titulo : ".$fila['titulo']." - "."Autor : ".$fila['autor']." - "."Disponible : ".$fila['disponible']."<br><br><br>";
+            $title=$fila['titulo']; 
+            $autorr=$fila['autor']; 
+            $dispons=$fila['disponible']; 
         }
+        }catch(Exception $e){
+                        echo "error al conectarse a la base de datos";
+                    }
+                    $conexion=null;
+               //creo las variables para la conexion
+      $dbHost="localhost";
+      $dbNombre="db_biblioteca";
+      $dbUsusario="root";
+      $dbPassword="";
+  
+      //para utilizar PDO hace falta especificar cual sera el nombre de la base de datos y el servidor
+      $hostPDO="mysql:host=$dbHost;dbname=$dbNombre;";
+     
+      //creo el bloque try-catch para la conexion
+      try{
+          //creo la conexion
+        $conexion2=new PDO($hostPDO,$dbUsusario,$dbPassword);
+        $conexion2->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-        if(isset($_SERVER["REQUIRE_METHOD"])==="POST"){
-
+        //como no sabemos el boton de modificar que se ha pulsado, he pasado el codigo de la posicion.
+        //hago primero un select para saber los datos
+ 
+        if(($_SERVER["REQUEST_METHOD"])==="POST"){
+            echo "ENTRANDO EN EL METODO POST";
             if(isset($_POST["titulo"])){
                 $tituloNuevo=$_POST["titulo"];
                     if(empty($tituloNuevo)){
-                        $tituloNuevo=$fila["titulo"];
+                        $tituloNuevo=$title;
                     }
             } 
             if(isset($_POST["autor"])){
                 $autorNuevo=$_POST["autor"];
                     if(empty($autorNuevo)){
-                        $autorNuevo=$fila["autor"];
+                        $autorNuevo=$autorr;
                     }
             } 
             if(isset($_POST["disponible"])) {
                 $disponibleNuevo=$_POST["disponible"];
                     if(empty($disponibleNuevo)){
-                        $disponibleNuevo=$fila["disponible"];
+                        $disponibleNuevo=$dispons;
                     }
             }
-            //comprobamos cuantos campos quiere cambiar
-           
-        
+
             $consulta="UPDATE LIBROS SET TITULO =:titulo,AUTOR =:autor,DISPONIBLE=:valor WHERE CODIGO= :codigo;";
         
-                $stmt=$conexion->prepare($consulta);
+                $stmt=$conexion2->prepare($consulta);
                 $stmt->bindParam(":titulo",$tituloNuevo);
                 $stmt->bindParam(":autor",$autorNuevo);
                 $stmt->bindParam(":valor",$disponibleNuevo);
@@ -85,10 +111,10 @@
                 
                 print_r($_POST);
         }
-        }catch(Exception $e){
-                        echo "error al conectarse a la base de datos";
-                    }
-       
+    }catch(Exception $e){
+        echo " error al conectar";
+    }
+       $conexion2=null;
 ?>
         
 
