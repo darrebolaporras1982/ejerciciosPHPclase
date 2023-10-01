@@ -1,0 +1,41 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: 100%;
+}
+body{
+   
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    width: 100%
+
+}
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+form{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+input{
+    margin: 1.4em;
+    padding: 1em;
+}
+#buscar{
+        border-radius: 5%;
+        border: none;
+        background-color: rgb(248, 204, 122);
+    }
+h1{
+    font-size: larger;
+    background-color: rgb(248, 204, 122);
+    color: white;
+}
