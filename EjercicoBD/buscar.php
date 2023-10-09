@@ -123,5 +123,6 @@
         }
     }
     ?>
+    <a href="menu.php">Volver al menu!!!</a>
 </body>
 </html>

@@ -59,7 +59,7 @@
                             foreach($img as $clave=>$valor){
                                 echo "en el campo $clave tiene un valor $valor<br>";
                             }
-                            echo "Imagen subida correctamente<br>";
+                            echo "Imagen subida correctamente<br>".$_FILES["file"]["size"]  ;
                             echo "<img src=$ruta>";
                         }
                     }

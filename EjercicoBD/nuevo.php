@@ -22,7 +22,9 @@ session_start();
                 <input type="radio" name="disponible" id="no" value="0">No
             </div>
             <input type="submit" value="Guardar" id="guardar">
+            <a href="menu.php">Volver al menu!</a>
         </form>
+        
     </div>
 
     <?php

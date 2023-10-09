@@ -18,6 +18,8 @@
             <input type="submit" value="Modificar" id="modificar">
         </form>
     </div>
+    <a href="consultar.php">Volver a Consulatr</a>
+    <a href="menu.php">Volver al menu</a>
     </body>
     </html>
 <?php
@@ -79,7 +81,7 @@
         //hago primero un select para saber los datos
  
         if(($_SERVER["REQUEST_METHOD"])==="POST"){
-            echo "ENTRANDO EN EL METODO POST";
+            
             if(isset($_POST["titulo"])){
                 $tituloNuevo=$_POST["titulo"];
                     if(empty($tituloNuevo)){
@@ -94,7 +96,7 @@
             } 
             if(isset($_POST["disponible"])) {
                 $disponibleNuevo=$_POST["disponible"];
-                    if(empty($disponibleNuevo)){
+                    if($disponibleNuevo==$dispons){
                         $disponibleNuevo=$dispons;
                     }
             }
@@ -106,10 +108,10 @@
                 $stmt->bindParam(":autor",$autorNuevo);
                 $stmt->bindParam(":valor",$disponibleNuevo);
                 $stmt->bindParam(":codigo",$codigo);
+
+
         
                 $stmt->execute();
-                
-                print_r($_POST);
         }
     }catch(Exception $e){
         echo " error al conectar";

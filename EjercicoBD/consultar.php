@@ -39,8 +39,8 @@
                 echo "<td>" . $indice["titulo"] . "</td>";
                 echo "<td>" . $indice["autor"] . "</td>";
                 echo "<td>" . $indice["disponible"] . "</td>";
-                echo "<td><input type='submit' value='Modificar' name=".$indice['codigo']."></td>";
-                echo "<td><input type='button' value='Borrar' name=".$indice['codigo']."></td>";
+                echo "<td><input type='submit' formaction='modificar.php' value='Modificar' name=".$indice['codigo']."></td>";
+                echo "<td><input type='submit' formaction='borrar.php' value='Borrar' name=".$indice['codigo']."></td>";
                 echo "</tr>";
             }
             
@@ -50,5 +50,6 @@
         echo "Error al conectarse a la base de datos para mostrar la tabla";
     }
     ?>
+    <a href="menu.php">Volver al Menu!</a>
 </body>
 </html>

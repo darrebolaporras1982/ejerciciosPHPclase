@@ -64,6 +64,7 @@ if((isset($_POST["usuario"])&&!empty($_POST["usuario"]))&&(isset($_POST["passW"]
 <input type="button" value="Insertar nuevo libro" name="insertar" id="insertar1">
 <input type="button" value="Consulta de libro" name="consultar" id="consultar1">
 <input type="button" value="Buscador de libro" name="buscar" id="buscar1">
+<label for=""><a href="index.html">VOLVER </a></label>
 </div>
 </body>
 </html>
