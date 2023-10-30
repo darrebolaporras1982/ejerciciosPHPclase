@@ -12,7 +12,9 @@
     <title>Document</title>
 </head>
 <body>
-    
+    <!-- <form action="" method="post">
+        <button type="submit" formaction="modificar.php" value="">Modificar</button>
+    </form> -->
     <?php
     include("conexion.php");
     $conexion=crear_conexion();
@@ -24,10 +26,10 @@
     if($resultado==0){
         echo "<h2>La tabla se encuentra vacía</h2>";
     }else{
-        echo"<form action='' method='post'><table><thead><th>Codigo</th><th>Titulo</th><th>autor</th><th>disponible</th></thead>";
+        echo"<form action='modificar.php' method='post'><table border=1><thead><th>Codigo</th><th>Titulo</th><th>Autor</th><th>Disponible</th><th colspan='2'>Accion</th></thead>";
         $filas=$stmt->fetchAll(PDO::FETCH_ASSOC);
         foreach($filas as $fila){
-            echo "<tr><td>".$fila['codigo']."</td><td>".$fila['titulo']."</td><td>".$fila['autor']."</td><td>".$fila['disponible']."</td><td><button type='submit' name='Modificar' value='".$fila['codigo']." formaction='modificar.php''>Modificar</button></td><td><button type='submit' name='Borrar 'value='".$fila['codigo']." formaction='borrar.php''>Borrar</button></td></tr>  ";
+            echo "<tr><td>".$fila['codigo']."</td><td>".$fila['titulo']."</td><td>".$fila['autor']."</td><td>".$fila['disponible']."</td><td><button type='submit' name='Modificar' formaction='modificar.php' value='".$fila['codigo']."'>Modificar</button></td><td><button type='submit' name='Borrar formaction='borrar.php' value='".$fila['codigo']."'>Borrar</button></td></tr>  ";
         }
         echo "</table></form>";
     }
