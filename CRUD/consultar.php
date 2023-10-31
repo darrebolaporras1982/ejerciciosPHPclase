@@ -12,9 +12,6 @@
     <title>Document</title>
 </head>
 <body>
-    <!-- <form action="" method="post">
-        <button type="submit" formaction="modificar.php" value="">Modificar</button>
-    </form> -->
     <?php
     include("conexion.php");
     $conexion=crear_conexion();
