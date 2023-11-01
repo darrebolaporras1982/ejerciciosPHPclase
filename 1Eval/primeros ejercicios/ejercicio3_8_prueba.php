@@ -44,23 +44,19 @@
                 }else{
                     //si todo lo anterior esta correcto proceso la img
                     //si se ha utilizado la insertar archivo
-                    if(isset($_FILES["file"])){
+                    if(isset($_FILES["file"])){  
                         //compruebo que si la imagen pesa 0 o menos es que no hay imagen
-                        if($_FILES["file"]["size"]<=0){
-                            echo"no hay imagen para subir";
-                        }else{
-                            $img=$_FILES["file"];
-                            //en una variable metemos el nombre del archivo temporal
-                            $imagen=$_FILES["file"]["tmp_name"];
-                            //ponemos la ruta dende lo vamos a alojar y el nombre
-                            $ruta="./img/".$nombre;
-                            //movemos el archivo con los dos paramentros
-                            move_uploaded_file($imagen,$ruta);
-                            foreach($img as $clave=>$valor){
-                                echo "en el campo $clave tiene un valor $valor<br>";
+                      $img=$_FILES["file"];
+                      if($img["size"]<=0){
+                        echo "no hay ninguna imagen subida";
+                      }else{
+                        $nomImg=$_FILES["file"]["name"];
+                        $destino="./img/".$nomImg;
+                        move_uploaded_file($_FILES["file"]["tmp_name"],$destino);
+                        foreach($img as $clave=>$valor){
+                            echo "el valor de $clave es $valor"."<br>";
                             }
-                            echo "Imagen subida correctamente<br>".$_FILES["file"]["size"]  ;
-                            echo "<img src=$ruta>";
+                            echo "<img src='$destino'>";
                         }
                     }
                 }

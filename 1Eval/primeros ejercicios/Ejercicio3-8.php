@@ -31,9 +31,11 @@ use function PHPSTORM_META\type;
             $edad=$_POST["edad"];
             $imagen=$_FILES["file"];
             $nom=$imagen['name'];
-            $destino="./img/imgcreada.jpg";
+            $destino="./img/".$nombre.".jpg";
             move_uploaded_file($imagen["tmp_name"],$destino);
-            
+            foreach($imagen as $clave=>$valor){
+                echo "En $clave tiene un valor de $valor"."<br>";
+            }
             echo "Nombre $nombre<br>";
             echo "Apellido $apellido<br>";
             echo "Edad $edad<br>";
