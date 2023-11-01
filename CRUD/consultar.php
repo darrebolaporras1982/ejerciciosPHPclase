@@ -26,9 +26,10 @@
         echo"<form action='modificar.php' method='post'><table border=1><thead><th>Codigo</th><th>Titulo</th><th>Autor</th><th>Disponible</th><th colspan='2'>Accion</th></thead>";
         $filas=$stmt->fetchAll(PDO::FETCH_ASSOC);
         foreach($filas as $fila){
-            echo "<tr><td>".$fila['codigo']."</td><td>".$fila['titulo']."</td><td>".$fila['autor']."</td><td>".$fila['disponible']."</td><td><button type='submit' name='Modificar' formaction='modificar.php' value='".$fila['codigo']."'>Modificar</button></td><td><button type='submit' name='Borrar formaction='borrar.php' value='".$fila['codigo']."'>Borrar</button></td></tr>  ";
+            echo "<tr><td>".$fila['codigo']."</td><td>".$fila['titulo']."</td><td>".$fila['autor']."</td><td>".$fila['disponible']."</td><td><button type='submit' name='Modificar' formaction='modificar.php' value='".$fila['codigo']."'>Modificar</button></td><td><button type='submit' name='borrar' formaction='borrar.php' value='".$fila['codigo']."'>Borrar</button></td></tr>  ";
         }
         echo "</table></form>";
+        echo "<a href='menu.php'>Volver al Menú</a>";
     }
 ?> 
 </body>
