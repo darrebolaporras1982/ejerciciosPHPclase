@@ -4,7 +4,6 @@ function crear_conexion(){
     $dbHost="localhost";
     $dbUsuario="root";
     $dbPass="";
-
     $Host=("mysql:host=$dbHost;dbname=$dbNombre");
     try{
         $conexion=new PDO($Host,$dbUsuario,$dbPass);
