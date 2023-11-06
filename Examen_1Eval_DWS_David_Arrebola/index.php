@@ -40,8 +40,9 @@ mostraremos diversas obras, que también podrás verlas en nuestro museo físico
     $fila=$stmt->fetchAll(PDO::FETCH_ASSOC);
     //tengo los datos en el array $fila, y los muestro
     echo "<h3>Ultima Obra : ".$fila[0]["nom_cuadro"]."</h3>";
-    echo "<img src='./Imágenes/'".$fila[0]["foto_cuadro"].">";
+    echo "<img src='./Imagenes/".$fila[0]["foto_cuadro"]."'>";
        
+var_dump($fila);
 
 ?>
 
