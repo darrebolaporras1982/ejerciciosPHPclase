@@ -21,6 +21,18 @@ if (isset($_POST["nombre"]) && isset($_POST["posicion"]) && isset($_POST["equipo
 
         //sino, quiere decir que todos los campos estan rellenados
     } else {
+        //comprobamos que el jugador no exista en la base de datos
+        $conexionComprobar=creoConexion();
+        $consultaComprobar="SELECT * FROM jugador WHERE nombre_jugador=:nom_jug AND nombre_equipo=:nom_equi;";
+        $stmtComprobar=$conexionComprobar->prepare($consultaComprobar);
+        $stmtComprobar->bindParam(":nom_jug",$nombre);
+        $stmtComprobar->bindParam(":nom_equi",$equipo);
+        $stmtComprobar->execute();
+        $resultado=$stmtComprobar->fetchAll(PDO::FETCH_ASSOC);
+        if($stmtComprobar->rowCount()>0){
+            echo "<h3>ya existe en ese jugador</h3>";
+            $conexionComprobar=null;
+        }else{
 
         //creamos la conexion
         $conexion = creoConexion();
@@ -46,5 +58,6 @@ if (isset($_POST["nombre"]) && isset($_POST["posicion"]) && isset($_POST["equipo
             header("Location: jugadores.php");
             exit;
         }
+    }
     }
 }
