@@ -97,14 +97,14 @@ session_start();
             $stmt->execute();
             $stmt->fetchAll(PDO::FETCH_ASSOC);
             if ($stmt->rowCount() > 0) {
-                $destino = "/Examen_1Eval_DWS_David_Arrebola/Imagenes/". $_FILES["imagen"]["name"]; //Direccion donde queremos alojar la imagen en el servidor
+                $destino = "./Imagenes/". $_FILES["imagen"]["name"]; //Direccion donde queremos alojar la imagen en el servidor
                 $origen = $_FILES["imagen"]["tmp_name"]; //el origen desde el que vamos a coger la imagen. carpeta temporal
                 move_uploaded_file($origen, $destino); //movemos la imagen de origen a destino
 
                 //podemos sacar un mensaje con el resultado
                 //podemos redirigir a la pagina de jugadores
                 header("Location: index.php");
-                exit;
+         exit;
             }
         }
     }
