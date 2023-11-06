@@ -1,3 +1,8 @@
+
+<?php
+session_start();
+//iniciamos la sesion 
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,8 +12,6 @@
 </head>
 <body>
 <?php
-//iniciamos la sesion 
-session_start();
 //incluimos la carpeta de funciones
 include("conexion.php");
 
@@ -19,14 +22,30 @@ if(!isset($_SESSION["admin"])){
 }else{
     // sino 
     require("./vistas/consesion.php");
-   
-    // esto viene de la pagina de iniciar sesion
-    // si ha realizado correctamente aparede un mensaje
-    $mensaje=$_SESSION["mensaje"];
-    echo $mensaje;
-    $_SESSION["mensaje"]=null;
 }
 ?>    
+<h2>GALERIA DE ARTE TXURDINAGA</h2>
+<h3>En ésta galería de arte 
+mostraremos diversas obras, que también podrás verlas en nuestro museo físico.</h3>
+
+<?php
+    //creo la conexion para mostar la imagen de inicio
+    $conexion=creoConexion();
+    //creo la consulta para mostrar la ultima imagen
+    $consulta="SELECT * FROM cuadro ORDER BY cod_cuadro desc limit 1;";
+    //preparo la consulta
+    $stmt=$conexion->prepare($consulta);
+    //ejecuto la consulta
+    $stmt->execute();
+    $fila=$stmt->fetchAll(PDO::FETCH_ASSOC);
+    //tengo los datos en el array $fila, y los muestro
+    echo "<h3>Ultima Obra : ".$fila[0]["nom_cuadro"]."</h3>";
+    echo "<img src='./Imágenes/'".$fila[0]["foto_cuadro"].">";
+       
+
+?>
+
+
 <?php require("./vistas/footer.php"); ?>  
 </body>
 </html>
