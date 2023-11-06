@@ -42,7 +42,7 @@ if(!isset($_SESSION["admin"])){
     </select>
     <input type="submit" value="Insertar">
             <?php
-            //aqui mostramos los mensajes de error al insertar del fichero jugadores.php
+            //aqui mostramos los mensajes de error al insertar del fichero guardarjugadores.php
             if(isset($_SESSION["mensajeError"])){
                 $mensaje=$_SESSION["mensaje"];
                 echo $mensaje;
