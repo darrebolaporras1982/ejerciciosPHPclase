@@ -13,6 +13,4 @@ function crear_conexion(){
     }
     return $conexion; 
 }
-    
-
 ?>
