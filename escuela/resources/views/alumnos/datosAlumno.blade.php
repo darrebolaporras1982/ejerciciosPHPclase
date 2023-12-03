@@ -23,7 +23,7 @@
         </tbody>
     </table>
     <a href="#" class="btn btn-primary stretched-link">Editar</a>
-    <a href="{{ route('elminarAlumno',['id'=>$alumno->id]) }}" class="btn btn-danger stretched-link">Eliminar</a>
+    <a href="{{ route('eliminarAlumno',['id'=>$alumno->id]) }}" class="btn btn-danger stretched-link">Eliminar</a>
 </div>
 </body>
 </html>
