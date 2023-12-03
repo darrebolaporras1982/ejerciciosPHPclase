@@ -8,10 +8,10 @@
     <title>Eliminar</title>
 </head>
 <body>
-    <h1 class="h1 text-center">Seguro que deseas eliminar el Alumno???</h1>
+    {{-- <h1 class="h1 text-center">Seguro que deseas eliminar el Alumno???</h1>
     <div class="container">
         <a href="{{ route('eliminarAlumno',['id'=>$alumno->id]) }}" class="btn btn-primary stretched-link">CONFIRMAR</a>
         <a href="" class="btn btn-danger stretched-link">CANCELAR</a>
-    </div>
+    </div> --}}
 </body>
 </html>

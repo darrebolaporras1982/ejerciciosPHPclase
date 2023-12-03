@@ -16,13 +16,12 @@ class AlumnoController extends Controller
         $alumno=Alumno::find($id);
         return view('alumnos/datosAlumno',compact('alumno'));
     }
-    public function redirigir($id){
-        $alumno=Alumno::find($id);
-        return redirect()->route('eliminarAlumno',compact('alumno'));
-    }
     public function eliminar($id){
         $alumno=Alumno::find($id);
         $alumno->delete();
         return redirect()->route('listaAlumnos');
+    }
+    public function editar(Request $alumnos,Alumno $alumno){
+
     }
 }
