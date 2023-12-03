@@ -16,4 +16,9 @@ class AlumnoController extends Controller
         $alumno=Alumno::find($id);
         return view('alumnos/datosAlumno',compact('alumno'));
     }
+    public function eliminar($id){
+        $alumno=Alumno::find($id);
+        $alumno->delete();
+        return view('alumnos/listaAlumnos');
+    }
 }

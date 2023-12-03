@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AlumnoController;
+use App\Models\Alumno;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,3 +20,4 @@ Route::get('/', function () {
 });
 Route::get('/alumnos',[AlumnoController::class,'listarAlumnos'])->name('listaAlumnos');
 Route::get('/alumnos/{id}',[AlumnoController::class,'datosAlumno'])->name('muestraDatos');
+Route::delete('/alumnos/eliminarAlumno/{id}',[AlumnoController::class,'eliminar'])->name('eliminarAlumno');
